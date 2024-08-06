@@ -37,7 +37,7 @@ namespace HerenciaPractica
 
         public virtual int SearchDevice(List<ElectronicDevice> electronicDevices)
         {
-            Console.WriteLine("¿Que desea buscar?: ");
+            Console.Write("¿Que desea buscar?: ");
             string deviceToSearch = Console.ReadLine();
             int index = 0;
             bool found = false;

@@ -2,8 +2,10 @@
 using System.Runtime.CompilerServices;
 
 List<ElectronicDevice> electronicDevices = new List<ElectronicDevice>();
+ElectronicDevice electronicDevice = new ElectronicDevice("", "", -1, "", "");
 do
 {
+    Console.Clear();
     Console.WriteLine("------TIENDA ELECTRONICA------");
     Console.WriteLine("\n     1. Agregar Dispositivo");
     Console.WriteLine("\n     2. Listar Productos");
@@ -13,6 +15,25 @@ do
     {
         case "1":
             AddDevice(electronicDevices);
+            break;
+        case "2":
+            foreach (var device in electronicDevices)
+            {
+                device.ShowDevice();
+            }
+            Console.Write("Presione ENTER para continuar");
+            Console.ReadLine();
+            break;
+
+        case "3":
+            int index = electronicDevice.SearchDevice(electronicDevices);
+            if(index != -1)
+            {
+                electronicDevices[index].ShowDevice();
+            }
+            else Console.WriteLine("Dicho dispositivo no existe");
+            Console.Write("Presione ENTER para continuar");
+            Console.ReadLine();
             break;
     }
 }while (true);
@@ -44,30 +65,74 @@ void AddDevice(List<ElectronicDevice> electronicDevices)
     {
         case "1":
            
-            Console.WriteLine("Procesador: ");
+            Console.Write("Procesador: ");
             string procesor = Console.ReadLine();
-            Console.WriteLine("Tarjeta Grafica: ");
+            Console.Write("Tarjeta Grafica: ");
             string graphicCard = Console.ReadLine();
-            Console.WriteLine("RAM: ");
+            Console.Write("RAM: ");
             string RAM = Console.ReadLine();
             Computer computer = new Computer(nombre, marca, year, storage, os, procesor, graphicCard, RAM);
+            electronicDevices.Add(computer);
+            Console.Write("Objeto agregado correctamente");
+            Console.ReadLine();
             break;
         case "2":
-            Console.WriteLine("Resolucion de pantalla: ");
+            Console.Write("Resolucion de pantalla: ");
             string screen = Console.ReadLine();
-            int camera, battery;
+            int camera, battery, sim;
             do
             {
                 Console.Write("Megapixeles de camara: ");
                 camera = AskInt();
             } while (camera == -1);
-            Console.WriteLine("Puerto de carga: ");
+            Console.Write("Puerto de carga: ");
             string charging = Console.ReadLine();
             do
             {
                 Console.Write("Horas de bateria: ");
                 battery = AskInt();
             } while (battery == -1);
+            do
+            {
+                Console.Write("Espacios de SIM: ");
+                sim = AskInt();
+            } while (sim == -1);
+            Console.Write("Ancho de banda: ");
+            string bandwith = Console.ReadLine();
+            Phone phone = new Phone(nombre, marca, year, storage, os, screen, camera, charging, battery, sim, bandwith);
+            electronicDevices.Add(phone);
+            Console.Write("Objeto agregado correctamente");
+            Console.ReadLine();
+            break;
+        case "3":
+            Console.Write("Resolucion de pantalla: ");
+            string screenSize = Console.ReadLine();
+            int cameraMp, batteryDuration;
+            bool acceptsPencil, acceptsKeyboard;
+            do
+            {
+                Console.Write("Megapixeles de camara: ");
+                cameraMp = AskInt();
+            } while (cameraMp == -1);
+            Console.Write("Puerto de carga: ");
+            string chargingPort = Console.ReadLine();
+            do
+            {
+                Console.Write("Horas de bateria: ");
+                batteryDuration = AskInt();
+            } while (batteryDuration == -1);
+            Console.Write("Acepta lapiz: s/n   ");
+            string sn = Console.ReadLine().ToLower().Trim();
+            if (sn == "s") acceptsPencil = true;
+            else acceptsPencil = false;
+            Console.Write("Acepta teclado: s/n   ");
+            sn = Console.ReadLine().ToLower().Trim();
+            if (sn == "s") acceptsKeyboard = true;
+            else acceptsKeyboard = false;
+            Tablet tablet = new Tablet(nombre, marca, year, storage, os, screenSize, cameraMp, chargingPort, batteryDuration, acceptsPencil, acceptsKeyboard);
+            electronicDevices.Add(tablet);
+            Console.Write("Objeto agregado correctamente");
+            Console.ReadLine();
             break;
     }
 

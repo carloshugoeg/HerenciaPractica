@@ -21,7 +21,7 @@ void AddDevice(List<ElectronicDevice> electronicDevices)
 {
     Console.Clear();
     Console.WriteLine("------Agregar Dispositivo-------");
-    Console.WriteLine("     1. Computadora");
+    Console.WriteLine("\n     1. Computadora");
     Console.WriteLine("     2. Telefono");
     Console.WriteLine("     3. Tablet");
     string option = Console.ReadLine();
@@ -30,8 +30,12 @@ void AddDevice(List<ElectronicDevice> electronicDevices)
         case "1":
             Console.WriteLine("\n----------------");
             Console.WriteLine("Agregar Computadora");
-            Console.WriteLine("\n Ingrese Nombre: ");
+            Console.Write("\nIngrese Nombre: ");
             string nombre = Console.ReadLine();
+            Console.Write("Ingrese Marca: ");
+            string marca = Console.ReadLine();
+            Console.Write("Año de lanzamiento: ");
+            int year = AskInt();
             break;
     }
 
@@ -39,49 +43,40 @@ void AddDevice(List<ElectronicDevice> electronicDevices)
 
 int AskInt()
 {
-    do
+    try
     {
-        try
+        int number;
+        do
         {
-
-            int precio;
-            do
+            number = int.Parse(Console.ReadLine());
+            if (number == 0 || number == null)
             {
-                Console.Write("Ingrese el precio de su producto: Q.");
-                precio = double.Parse(Console.ReadLine());
-                if (precio == 0 || precio == null)
-                {
-                    Console.WriteLine("Valor no puede ser 0");
-                    Console.ReadLine();
-                }
-            } while (precio == 0);
-            return precio;
-        }
-        catch (FormatException ex)
-        {
-            Console.WriteLine("INPUT INVALIDO");
-            Console.WriteLine(ex.Message);
-            Console.ReadLine();
-            Console.Clear();
-            Console.WriteLine("-----Nueva Venta-----");
-        }
-        catch (ArgumentOutOfRangeException ex)
-        {
-            Console.WriteLine("EL numero es demasiado grande");
-            Console.ReadLine();
-            Console.Clear();
-            Console.WriteLine("-----Nueva Venta-----");
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("ERROR");
-            Console.WriteLine(ex.Message);
-            Console.ReadLine();
-            Console.Clear();
-            Console.WriteLine("-----Nueva Venta-----");
-        }
-    } while (true);
+                Console.WriteLine("Valor no puede ser 0");
+                Console.ReadLine();
+            }
+        } while (number == 0);
+        return number;
+    }
+    catch (FormatException ex)
+    {
+        Console.WriteLine("INPUT INVALIDO");
+        Console.WriteLine(ex.Message);
+        Console.ReadLine();
+        Console.Clear();
+    }
+    catch (ArgumentOutOfRangeException ex)
+    {
+        Console.WriteLine("EL numero es demasiado grande");
+        Console.ReadLine();
+        Console.Clear();
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("ERROR");
+        Console.WriteLine(ex.Message);
+        Console.ReadLine();
+        Console.Clear();
+    }
 }
-
 
 

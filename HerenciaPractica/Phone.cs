@@ -8,8 +8,8 @@ namespace HerenciaPractica
 {
     internal class Phone : MobileDevice
     {
-        public Phone(string name, string brand, int year, int discStorage,
-            string operativeSystem, double screenSize, int cameraMP, string chargingPort,
+        public Phone(string name, string brand, int year, string discStorage,
+            string operativeSystem, string screenSize, int cameraMP, string chargingPort,
             int batteryDuration, int simSpots, string bandwith)
             : base(name, brand, year, discStorage, operativeSystem, screenSize, cameraMP, 
                   chargingPort, batteryDuration )

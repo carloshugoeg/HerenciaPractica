@@ -8,7 +8,7 @@ namespace HerenciaPractica
 {
     public class ElectronicDevice
     {
-        public ElectronicDevice(string name, string brand, int year, int discStorage, string operativeSystem)
+        public ElectronicDevice(string name, string brand, int year, string discStorage, string operativeSystem)
         {
             Name = name;
             Brand = brand;
@@ -20,7 +20,7 @@ namespace HerenciaPractica
         public string Name { get; set; }
         public string Brand { get; set; }
         public int Year { get; set; }
-        public int DiscStorage { get; set; }
+        public string DiscStorage { get; set; }
         public string OperativeSystem { get; set; }
         public virtual void ShowDevice()
         {

@@ -8,8 +8,8 @@ namespace HerenciaPractica
 {
     public class Computer : ElectronicDevice
     {
-        public Computer(string name, string brand, int year, int discStorage, 
-            string operativeSystem,string processor, string graphicCard, int rAM)
+        public Computer(string name, string brand, int year, string discStorage, 
+            string operativeSystem,string processor, string graphicCard, string rAM)
             : base (name, brand, year, discStorage, operativeSystem)
         {
             Processor = processor;
@@ -19,7 +19,7 @@ namespace HerenciaPractica
 
         public string Processor { get; set; }
         public string GraphicCard { get; set; }
-        public int RAM { get; set; }
+        public string RAM { get; set; }
       
         public override void ShowDevice()
         {

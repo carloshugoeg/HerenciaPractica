@@ -8,8 +8,8 @@ namespace HerenciaPractica
 {
     internal class Tablet : MobileDevice
     {
-        public Tablet(string name, string brand, int year, int discStorage,
-            string operativeSystem, double screenSize, int cameraMP, string chargingPort,
+        public Tablet(string name, string brand, int year, string discStorage,
+            string operativeSystem, string screenSize, int cameraMP, string chargingPort,
             int batteryDuration, bool supportsPencil, bool supportsKeyboard)
             : base(name, brand, year, discStorage, operativeSystem, screenSize, cameraMP,
                   chargingPort, batteryDuration)

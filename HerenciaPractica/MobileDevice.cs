@@ -10,8 +10,8 @@ namespace HerenciaPractica
 {
     public class MobileDevice : ElectronicDevice
     {
-        public MobileDevice(string name, string brand, int year, int discStorage, 
-            string operativeSystem,double screenSize, int cameraMP, string chargingPort, 
+        public MobileDevice(string name, string brand, int year, string discStorage, 
+            string operativeSystem,string screenSize, int cameraMP, string chargingPort, 
             int batteryDuration) : base(name, brand, year, discStorage, operativeSystem)
         {
             ScreenSize = screenSize;
@@ -20,7 +20,7 @@ namespace HerenciaPractica
             BatteryDuration = batteryDuration;
         }
 
-        public double ScreenSize { get; set; }
+        public string ScreenSize { get; set; }
         public int CameraMP {  get; set; }
         public string ChargingPort { get; set; }
         public int BatteryDuration { get; set; }

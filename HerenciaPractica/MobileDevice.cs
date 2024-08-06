@@ -4,11 +4,22 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace HerenciaPractica
 {
     public class MobileDevice : ElectronicDevice
     {
+        public MobileDevice(string name, string brand, int year, int discStorage, 
+            string operativeSystem,double screenSize, int cameraMP, string chargingPort, 
+            int batteryDuration) : base(name, brand, year, discStorage, operativeSystem)
+        {
+            ScreenSize = screenSize;
+            CameraMP = cameraMP;
+            ChargingPort = chargingPort;
+            BatteryDuration = batteryDuration;
+        }
+
         public double ScreenSize { get; set; }
         public int CameraMP {  get; set; }
         public string ChargingPort { get; set; }
@@ -20,6 +31,10 @@ namespace HerenciaPractica
             Console.WriteLine($"Calidad de camara:{CameraMP} Megapixeles");
             Console.WriteLine($"Puerto de Carga: Tipo {ChargingPort}");
             Console.WriteLine($"Duracion de bateria: {BatteryDuration} horas");
+        }
+        public override int SearchDevice(List<ElectronicDevice> electronicDevices)
+        {
+            return base.SearchDevice(electronicDevices);
         }
     }
 }

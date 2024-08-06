@@ -8,6 +8,15 @@ namespace HerenciaPractica
 {
     public class Computer : ElectronicDevice
     {
+        public Computer(string name, string brand, int year, int discStorage, 
+            string operativeSystem,string processor, string graphicCard, int rAM)
+            : base (name, brand, year, discStorage, operativeSystem)
+        {
+            Processor = processor;
+            GraphicCard = graphicCard;
+            RAM = rAM;
+        }
+
         public string Processor { get; set; }
         public string GraphicCard { get; set; }
         public int RAM { get; set; }
@@ -18,8 +27,10 @@ namespace HerenciaPractica
             Console.WriteLine("Procesador: " + Processor);
             Console.WriteLine("Tarjeta Grafica: " + GraphicCard);
             Console.WriteLine($"Memoria RAM: {RAM}GB");
-            
-
+        }
+        public override int SearchDevice(List<ElectronicDevice> electronicDevices)
+        {
+            return base.SearchDevice(electronicDevices);
         }
     }
 }
